@@ -1,4 +1,4 @@
 # build_files.sh
 pip install -r requirements.txt
 python manage.py collectstatic
-pip install --upgrade pip
+run: pip install --upgrade pip
