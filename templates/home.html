@@ -1,0 +1,161 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+
+
+
+<!-- ========================= SECTION MAIN ========================= -->
+<!-- <section class="section-intro padding-y-sm"> -->
+
+
+<!-- slider img  -->
+
+<section class="section-slider">
+    <div class="slider-container">
+        <!-- print({{slider}}) -->
+        {% for data in slider %}
+
+        <div class="slide-img active" style=" background: url('{{data.image.url}}') center / cover
+            no-repeat; background-size: cover; ">
+            <h1>{{data.title}}</h1>
+        </div>
+        {% endfor %}
+
+
+        <div class="slide-buttons">
+            <div class="slide-previous">
+                <ion-icon name="arrow-back-circle-outline"></ion-icon>
+            </div>
+            <div class="slide-next">
+                <ion-icon name="arrow-forward-circle-outline"></ion-icon>
+            </div>
+
+        </div>
+        <div class="slide-dots"></div>
+
+    </div>
+
+</section>
+
+
+<!-- end of slider -img  -->
+
+<section class="">
+    <div class="fluid-container">
+
+
+
+
+
+        <section class="section-category ">
+            <!-- single category  -->
+            <header class="section-heading">
+
+                <h3 class="section-title text-center title-section">Popular products</h3>
+            </header><!-- sect-heading -->
+
+            <div class="category-container md-6   ">
+
+
+                <div class="category-img  ">
+                    <div class="single-category first_category radius category animation">
+                        <div class="title-container">
+                            <a href="{% url 'laptop_latest_product'%}" class="category-title ca-title">Computer</a>
+
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <div class="category-img ">
+                    <div class="second-category  single-category animation radius">
+                        <div class="title-container">
+                            <a href="{% url 'television_latest_product'%}"
+                                class="category-title ca-title">Television</a>
+                            <!-- <a href="{% url 'television_latest_product' %}"
+                                    class="category-title ca-title">Television</a> -->
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="category-img  ">
+                    <div class="third-category single-category animation radius">
+                        <div class="title-container">
+                            <a href="{% url 'mobile-phone_latest_product'%}" class="category-title ca-title">Mobile</a>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="category-img">
+                    <div class="fourth-category  single-category animation radius">
+                        <div class="title-container">
+                            <a href="{% url 'head-phone_latest_product'%}" class="category-title ca-title">HeadPhone</a>
+                        </div>
+
+                    </div>
+                </div>
+
+
+            </div>
+
+
+
+        </section>
+
+
+
+    </div>
+</section>
+
+
+
+
+
+
+<!-- ========================= SECTION MAIN END// ========================= -->
+
+<!-- ========================= SECTION  ========================= -->
+<section class="section-product">
+    <div class="container">
+
+        <header class="section-heading">
+
+            <h3 class="section-title text-center title-section">Popular products</h3>
+        </header><!-- sect-heading -->
+
+
+        <div class="row">
+            {% for product in products %}
+            <div class="col-md-3">
+                <div class="card card-product-grid">
+                    <a href="{{product.get_url}}" class="img-wrap"> <img src="{{ product.images.url}}">
+                    </a>
+                    <figcaption class="info-wrap">
+                        <a href="{{product.get_url}}" class="title">{{product.product_name}}</a>
+                        <div class="price mt-1"> <span class="money"> ৳</span> {{product.price}}</div>
+                        <!-- price-wrap.// -->
+                    </figcaption>
+                </div>
+            </div> <!-- col.// -->
+
+            {% endfor%}
+        </div> <!-- row.// -->
+
+        <a href="{% url 'store' %}" class="home-see-all ">See all</a>
+        <!-- <a href="{% url 'store' %}" class="btn btn-outline-primary text center">See all</a> -->
+
+    </div><!-- container // -->
+</section>
+<!-- ========================= SECTION  END// ========================= -->
+
+
+
+
+
+
+
+
+{% endblock %}
